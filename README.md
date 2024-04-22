@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PhazeRo Gallery
+
+This is a responsive photo gallery application where users can view a list of photos fetched from the Unsplash API. Users can mark photos as favorites, and these favorites persist across sessions using the browser's localStorage.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Key Configuration](#api-key-configuration)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js installed on your local machine
+- An API key from the Unsplash developer platform
+- git is not required but should make you move along with this docs
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ilyes24/PhazeroGallery.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd PhazeroGallery
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies
 
-## Learn More
+```bash
+bun install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To start the development server, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+bun  dev
+```
 
-## Deploy on Vercel
+Open http://localhost:3000 to view the application in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Key Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To obtain an API key from the Unsplash developer platform:
+
+1.  Register for an account on Unsplash.
+2.  Create a new application to obtain your API key.
+3.  Copy your API key and configure it in the project.
+
+Create a `.env` file in the root directory of your project and add the following:
+```
+REACT_APP_UNSPLASH_ACCESS_KEY=your-access-key
+```
+
+Replace `your-access-key` with your actual Unsplash API access key.
+
+## Technologies Used
+
+-   [NextJS 14 with App Router](https://nextjs.org/) (for image optimization and all in batteries included functionalities)
+-   [Tanstack React Query](https://tanstack.com/query/latest) (for handling the caching and and infinite query requests)
+- [Tailwind](https://tailwindcss.com/) (don't need to explain this 😁)
+-   [useHooks-TS](https://usehooks-ts.com/) for built-in **debounce** and **localStorage** hooks
+-   [ShadCN](https://ui.shadcn.com/) for building our own visual identity (although i used the stock one with minor changes)
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
