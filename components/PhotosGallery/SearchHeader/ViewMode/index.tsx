@@ -8,7 +8,7 @@ interface Props {
 
 export const ViewMode: React.FC<Props> = ({ viewMode, setViewMode }) => {
     return (
-        <div className='w-full flex gap-3 justify-end'>
+        <div className='hidden w-full md:flex gap-3 justify-end'>
             <Button
                 variant={viewMode === "list" ? "default" : "outline"}
                 size='icon'

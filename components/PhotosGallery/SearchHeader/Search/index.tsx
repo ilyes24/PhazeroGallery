@@ -13,7 +13,7 @@ export const Search: React.FC<Props> = ({ query, setQuery }) => {
     return (
         <div className='w-full'>
             <Input
-                className='w-1/2'
+                className='w-full md:w-1/2'
                 startIcon={SearchIcon}
                 type='text'
                 placeholder='Search ...'
