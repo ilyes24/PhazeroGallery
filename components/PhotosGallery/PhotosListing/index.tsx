@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
-import { useSessionStorage } from "usehooks-ts"
+import { useLocalStorage } from "usehooks-ts"
 
 import { PhotoCard } from "@/components/PhotosGallery/PhotosListing/PhotoCard"
 
@@ -33,7 +33,7 @@ const fetchPhotos = async ({
 }
 
 export const PhotosListing: React.FC<Props> = ({ query }) => {
-    const [value, setValue, removeValue] = useSessionStorage("favorites", [
+    const [value, setValue, removeValue] = useLocalStorage("favorites", [
         "KDYGrlXsHtQ",
     ])
 
