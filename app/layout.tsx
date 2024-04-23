@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Providers } from "@/utils/providers"
+import { Header } from "@/components/layout/Header/index"
+import { HeroSection } from "@/components/layout/HeroSection/index"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,7 +20,15 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.className}>
-                <Providers>{children}</Providers>
+                <Providers>
+                    <Header />
+                    <main className='flex min-h-screen flex-col items-center px-16 py-24 md:p-24 gap-10'>
+                        <div className='w-full'>
+                            <HeroSection />
+                        </div>
+                        {children}
+                    </main>
+                </Providers>
             </body>
         </html>
     )

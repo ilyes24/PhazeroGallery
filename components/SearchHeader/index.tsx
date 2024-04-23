@@ -1,5 +1,5 @@
-import { Search } from "@/components/PhotosGallery/SearchHeader/Search"
-import { ViewMode } from "@/components/PhotosGallery/SearchHeader/ViewMode"
+import { Search } from "@/components/SearchHeader/Search/index"
+import { ViewMode } from "@/components/SearchHeader/ViewMode/index"
 import React from "react"
 
 interface Props {

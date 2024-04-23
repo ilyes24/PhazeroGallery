@@ -2,7 +2,7 @@ import { useCallback, useMemo, useRef } from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { useLocalStorage } from "usehooks-ts"
 
-import { PhotoCard } from "@/components/PhotosGallery/PhotosListing/PhotoCard"
+import { PhotoCard } from "@/components/PhotoCard/index"
 
 interface Props {
     query: string
@@ -25,7 +25,7 @@ const fetchPhotos = async ({
         params.set("query", query)
     }
     const response = await fetch(
-        `https://api.unsplash.com/${path}?${params.toString()}`
+        `${process.env.NEXT_PUBLIC_UNSPLASH_API}/${path}?${params.toString()}`
     )
 
     const photos = await response.json()
@@ -33,9 +33,7 @@ const fetchPhotos = async ({
 }
 
 export const PhotosListing: React.FC<Props> = ({ query }) => {
-    const [value, setValue, removeValue] = useLocalStorage("favorites", [
-        "KDYGrlXsHtQ",
-    ])
+    const [value, setValue, removeValue] = useLocalStorage("favorites", [""])
 
     const observer = useRef<IntersectionObserver>()
 

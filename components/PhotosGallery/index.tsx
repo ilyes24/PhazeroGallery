@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import { SearchHeader } from "@/components/PhotosGallery/SearchHeader"
-import { PhotosListing } from "@/components/PhotosGallery/PhotosListing"
+import { SearchHeader } from "../SearchHeader"
+import { PhotosListing } from "../PhotosListing"
 
 export const PhotosGallery = () => {
     const [query, setQuery] = useState("")
