@@ -4,8 +4,8 @@ import Image from "next/image"
 
 interface Props {
     photo: Photo
-    isInFavorites: string | undefined
-    toggleItemInFavorites: (photoId: string) => void
+    isInFavorites: boolean
+    toggleItemInFavorites: (photo: Photo) => void
 }
 
 export const PhotoCard: React.FC<Props> = ({
@@ -35,7 +35,7 @@ export const PhotoCard: React.FC<Props> = ({
                         <span>{photo.user.name}</span>
                     </div>
                     <button
-                        onClick={() => toggleItemInFavorites(photo.id)}
+                        onClick={() => toggleItemInFavorites(photo)}
                         className={
                             isInFavorites
                                 ? "text-red-500 hover:text-white"

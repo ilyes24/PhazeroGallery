@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { useLocalStorage } from "usehooks-ts"
 
 import { PhotoCard } from "@/components/PhotoCard/index"
+import { Photo } from "@/models/photo"
 
 interface Props {
     query: string
@@ -33,7 +34,10 @@ const fetchPhotos = async ({
 }
 
 export const PhotosListing: React.FC<Props> = ({ query }) => {
-    const [value, setValue, removeValue] = useLocalStorage("favorites", [""])
+    const [value, setValue, removeValue] = useLocalStorage<Photo[]>(
+        "favorites",
+        []
+    )
 
     const observer = useRef<IntersectionObserver>()
 
@@ -52,11 +56,11 @@ export const PhotosListing: React.FC<Props> = ({ query }) => {
             },
         })
 
-    const toggleItemInFavorites = (photoId: string) => {
-        if (value.find((item) => item === photoId)) {
-            setValue(value.filter((item) => item !== photoId))
+    const toggleItemInFavorites = (photo: Photo) => {
+        if (value.find((item) => item.id === photo.id)) {
+            setValue(value.filter((item) => item.id !== photo.id))
         } else {
-            setValue([...value, photoId])
+            setValue([...value, photo])
         }
     }
     const lastElementRef = useCallback(
@@ -97,7 +101,9 @@ export const PhotosListing: React.FC<Props> = ({ query }) => {
                 <div key={photo.id} ref={lastElementRef}>
                     <PhotoCard
                         photo={photo}
-                        isInFavorites={value.find((item) => item === photo.id)}
+                        isInFavorites={
+                            !!value.find((item) => item.id === photo.id)
+                        }
                         toggleItemInFavorites={toggleItemInFavorites}
                     />
                 </div>
